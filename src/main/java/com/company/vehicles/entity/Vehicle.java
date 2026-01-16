@@ -1,70 +1,86 @@
 package com.company.vehicles.entity;
 
-public class Vehicle {
-    private long id;
-    private String brand;
-    private String model;
-    private Double price;
-    private int stock;
-    private String delete;
+import jakarta.persistence.*;
 
-    public Vehicle(long id, String brand, String model, Double price, int stock, String delete) {
+@Entity
+@Table(name = "vehicles")
+public class Vehicle {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    
+    @Column(nullable = false)
+    private String brand;
+    
+    @Column(nullable = false, unique = true)
+    private String model;
+    
+    @Column(nullable = false)
+    private Double price;
+    
+    @Column(nullable = false)
+    private int stock;
+    
+    @Column(nullable = false)
+    private Boolean deleted;
+
+    public Vehicle() {
+    }
+
+    public Vehicle(long id, String brand, String model, Double price, int stock, Boolean deleted) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.price = price;
         this.stock = stock;
-        this.delete = delete;
+        this.deleted = deleted;
     }
 
+    public long getId() {
+        return id;
+    }
 
-public long getId() {
-    return id;
-}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-public void setId(long id) {
-    this.id = id;
-}
+    public String getBrand() {
+        return brand;
+    }
 
-public String getBrand() {
-    return brand;
-}
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
 
-public void setBrand(String brand) {
-    this.brand = brand;
-}
+    public String getModel() {
+        return model;
+    }
 
-public String getModel() {
-    return model;
-}
+    public void setModel(String model) {
+        this.model = model;
+    }
 
-public void setModel(String model) {
-    this.model = model;
-}
+    public Double getPrice() {
+        return price;
+    }
 
-public Double getPrice() {
-    return price;
-}
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 
-public void setPrice(Double price) {
-    this.price = price;
-}
+    public int getStock() {
+        return stock;
+    }
 
-public int getStock() {
-    return stock;
-}
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
 
-public void setStock(int stock) {
-    this.stock = stock;
-}
+    public Boolean getDeleted() {
+        return deleted;
+    }
 
-public String getDelete() {
-    return delete;
-}
-
-public void setDelete(String delete) {
-    this.delete = delete;
-}    
-    
-    
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
+    }
 }

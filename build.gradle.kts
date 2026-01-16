@@ -19,16 +19,14 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-webm")
+	implementation("org.springframework.boot:spring-boot-starter-web")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementacion("org.springframework.boot:spring-boot-starte-validation")
+	implementation("org.springframework.boot:spring-boot-starter-validation")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
 	runtimeOnly("com.h2database:h2")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-
 }
 tasks.withType<JavaCompile> {
     options.compilerArgs.add("-parameters")
