@@ -34,7 +34,7 @@ public class VehicleServiceImpl implements VehicleService {
         }
         return respuesta;
     }
-
+    
     @Override
     public List<vehiclesResponseDto> getLowStockExpensiveVehicles() {
         List<Vehicle> todos = repository.findAll();
