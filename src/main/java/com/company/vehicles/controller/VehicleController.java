@@ -43,6 +43,9 @@ public class VehicleController {
         if (response.isSuccess()) {
             return ResponseEntity.ok(response);
         }
+        if (response.isConflict()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+        }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }
 

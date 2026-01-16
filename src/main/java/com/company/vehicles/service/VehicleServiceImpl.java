@@ -40,7 +40,7 @@ public class VehicleServiceImpl implements VehicleService {
         List<Vehicle> todos = repository.findAll();
         List<vehiclesResponseDto> respuesta = new ArrayList<>();
         for (Vehicle vehicle : todos) {
-            if (!vehicle.getDeleted() && vehicle.getStock() < 10 && vehicle.getPrice() > 50000) {
+            if (vehicle.getDeleted() != null && !vehicle.getDeleted() && vehicle.getStock() < 10 && vehicle.getPrice() > 50000) {
                 respuesta.add(VechicesMapper.toResponseDto(vehicle));
             }
         }
@@ -52,6 +52,9 @@ public class VehicleServiceImpl implements VehicleService {
         Optional<Vehicle> vehicleOpt = repository.findByModel(model);
         if (vehicleOpt.isPresent()) {
             Vehicle vehicle = vehicleOpt.get();
+            if (vehicle.getDeleted() != null && vehicle.getDeleted()) {
+                return new OperationResponseDto(false, "Vehicle already deleted", true);
+            }
             vehicle.setDeleted(true);
             repository.save(vehicle);
             return new OperationResponseDto(true, "Vehicle deleted successfully");
