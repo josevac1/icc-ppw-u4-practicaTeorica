@@ -6,12 +6,12 @@ public class vehiclesResponseDto {
     private String model;
     private Double price;
     private int stock;
-    private Boolean deleted;
+    private String deleted;
 
     public vehiclesResponseDto() {
     }
 
-    public vehiclesResponseDto(long id, String brand, String model, Double price, int stock, Boolean deleted) {
+    public vehiclesResponseDto(long id, String brand, String model, Double price, int stock, String deleted) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -60,11 +60,11 @@ public class vehiclesResponseDto {
         this.stock = stock;
     }
 
-    public Boolean getDeleted() {
+    public String getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(Boolean deleted) {
+    public void setDeleted(String deleted) {
         this.deleted = deleted;
     }
 }

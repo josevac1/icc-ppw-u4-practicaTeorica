@@ -5,7 +5,7 @@ import com.company.vehicles.entity.Vehicle;
 
 public class VechicesMapper {
     
-    public static Vehicle toEntity(long id, String brand, String model, Double price, int stock, Boolean deleted) {
+    public static Vehicle toEntity(long id, String brand, String model, Double price, int stock, String deleted) {
         return new Vehicle(id, brand, model, price, stock, deleted);
     }
 

@@ -21,13 +21,13 @@ public class Vehicle {
     @Column(nullable = false)
     private int stock;
     
-    @Column(nullable = false)
-    private Boolean deleted;
+    @Column(nullable = false, length = 1)
+    private String deleted;
 
     public Vehicle() {
     }
 
-    public Vehicle(long id, String brand, String model, Double price, int stock, Boolean deleted) {
+    public Vehicle(long id, String brand, String model, Double price, int stock, String deleted) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -76,11 +76,11 @@ public class Vehicle {
         this.stock = stock;
     }
 
-    public Boolean getDeleted() {
+    public String getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(Boolean deleted) {
+    public void setDeleted(String deleted) {
         this.deleted = deleted;
     }
 }
